@@ -89,9 +89,6 @@ if (shoppingCart) {
       orderItem: orderItems,
     };
 
-    userData.phonenumber = userData.phonenumber.replace(/\D/g, '');
-    userData.phonenumber = userData.phonenumber.toString();
-
     console.log(userData);
     //const jwt = sessionStorage.getItem("token");
     const apiUrl = "https://grupp-3.vercel.app/api/orders/";
