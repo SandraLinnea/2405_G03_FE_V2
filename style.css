@@ -186,6 +186,8 @@ aside {
       max-width: 600px;
       max-height: 500px;
       padding: 1rem;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
       margin-left: 4rem;
       margin-right: 4rem;
       margin-top: 6rem;
@@ -362,6 +364,13 @@ aside {
   height: 2rem;
   font-size:1rem;
   font-weight:600;
+}
+
+.product-card-info, .product-card-info * {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 100%;
 }
 
 .product-card button {
