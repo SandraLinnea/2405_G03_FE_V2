@@ -100,6 +100,7 @@ aside {
     justify-content: center;
     margin-top: 2rem;
     align-self: start;
+  
 
     button {
       padding: 1rem;
@@ -112,6 +113,19 @@ aside {
     }
     button:active {
       transform: translateY(4px);
+      cursor: pointer;
+      color: #1a0062;
+      text-decoration: underline;
+    }
+    button:hover {
+      cursor: pointer;
+      color: #1a0062;
+      text-decoration: underline;
+    }
+    button:focus {
+      cursor: pointer;
+      color: #1a0062;
+      text-decoration: underline;
     }
 
     @media (min-width: 800px) {
