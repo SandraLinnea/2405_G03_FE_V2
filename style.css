@@ -121,11 +121,13 @@ aside {
       cursor: pointer;
       color: #1a0062;
       text-decoration: underline;
+      transform: scale(1.2);
     }
     button:focus {
       cursor: pointer;
       color: #1a0062;
       text-decoration: underline;
+      transform: scale(1.2);
     }
 
     @media (min-width: 800px) {
