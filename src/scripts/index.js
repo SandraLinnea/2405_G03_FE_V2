@@ -158,9 +158,9 @@ function createProductCard(product) {
     </div>
     <p>${product.price.toFixed(2)} kr</p>
     <div class="cart-button-array">
-      <div id="cartbuttonminus" class="cart-button-minus">-</div>
+      <div id="cartbuttonminus" class="cart-button-minus material-symbols-outlined">remove</div>
       <div id="cartbuttoncount" class="cart-button-count">Varukorg (${cartValue})</div>
-      <div id="cartbuttonplus" class="cart-button-plus">+</div>
+      <div id="cartbuttonplus" class="cart-button-plus material-symbols-outlined">add</div>
     </div>
     <div id="cardbutton" class="card-button"><button class="add-to-cart-btn">Köp</button></div>
     </div>
