@@ -30,6 +30,12 @@ main {
   margin-top: 3rem;
 }
 
+#registerSection, #loginSection {
+  width: 100%;
+
+}
+
+
 input,
 button {
   width: 100%;
@@ -82,7 +88,7 @@ button:hover {
 
 .site-footer {
   text-align: center;
-  padding: 2rem 1rem;
+  /* padding: 2rem 1rem; */
   background-color: #001e62;
   color: white;
   margin-top: auto;
@@ -106,6 +112,11 @@ button:hover {
 
 /* desktop */
 @media (min-width: 1024px) {
+  #registerSection, #loginSection {
+    width: 50%;
+  
+  }
+
   .modal {
     max-width: 550px;
     padding: 3rem;
