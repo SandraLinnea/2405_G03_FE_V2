@@ -388,9 +388,9 @@ aside {
 }
 
 .product-card .cart-button-array .cart-button-plus {
-  width: 3rem;
-  height: 3rem;
-  font-size: 3rem;
+  width: 4rem;
+  height: 4rem;
+  font-size: 4rem;
   display: grid;
   align-content: center;
   border-radius: 500px;
@@ -404,9 +404,9 @@ aside {
 }
 
 .product-card .cart-button-array .cart-button-minus {
-  width: 3rem;
-  height: 3rem;
-  font-size: 3rem;
+  width: 4rem;
+  height: 4rem;
+  font-size: 4rem;
   display: grid;
   align-content: center;
   border-radius: 500px;
