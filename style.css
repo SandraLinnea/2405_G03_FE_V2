@@ -395,7 +395,6 @@ aside {
   flex: 1;
 }
 
-
 .product-card button {
   height: 3rem; /* Jesper's workaround to make the button the same height as the + - signs*/
   padding: 1rem 2rem; /* changed padding to rem from px */
@@ -407,7 +406,7 @@ aside {
   font-family: inherit; 
   transition: background-color 0.3s ease;
   background-color: #2426CC; 
-  color: #FFFFFF;  
+  color: #FFFFFF;
 }
 
 /* Jesper's workaround to get the text inside the button to align perfectly in the center */
@@ -557,6 +556,24 @@ aside {
 
 
 @media (min-width: 800px) {
+  /* Jespers placering av ikon */
+  #cart-header {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  #cart-header span {
+    font-size: 3rem;
+  }
+
+  #cart-header div {
+    height: 100%;
+  }
+
+
   h1 {
     margin-left: 9rem;
   }
@@ -570,6 +587,7 @@ aside {
       gap: 1rem;
       margin-left: 4rem;
       margin-right: 4rem;
+      font-size: medium; /* Jesper */
     }
     .nav-links {
       display: flex;
@@ -578,6 +596,7 @@ aside {
       padding: 0;
       color: navy;
       font-weight:640;
+      align-items: center;
     }
     .nav-links a {
       text-decoration: none;

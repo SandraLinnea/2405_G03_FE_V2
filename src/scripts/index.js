@@ -9,7 +9,7 @@ if (shoppingCart !== null) {
   let cartMobilemenu = document.getElementById("cart-mobilemenu");
   cartMobilemenu.innerHTML = `Varukorg ( ${shoppingCart.length} )`;
   let cartHeader = document.getElementById("cart-header");
-  cartHeader.innerHTML = `Varukorg ( ${shoppingCart.length} )`;
+  cartHeader.innerHTML = `<span class="material-symbols-outlined">shopping_basket</span><div>(${shoppingCart.length})</div>`;
 }
 
 loadCategories();
@@ -197,33 +197,6 @@ function createProductCard(product) {
     element.querySelector(".product-card-extra-info").style.display = "none";
   }
 
-/*   element.querySelector(".product-card-img").addEventListener("click", () => {
-    //element.querySelector(".product-card-extra-info").style.display = "block";
-
-    const mainProductCardContainer = document.querySelector(
-      "#productCardBackground"
-    );
-
-    const mainProductCardItem = document.createElement("div");
-    mainProductCardItem.className = "main-product-card-item";
-    mainProductCardItem.innerHTML = `
-      <div class="product-card-info">
-        <img src="${product.image}" alt="${product.title}"
-          onerror="this.onerror=null; this.src='./src/images/products/placeholder.jpg';" class="product-card-img" />
-        <h3>${product.title}</h3>
-        <div class="product-card-extra-info-view">
-          <P>${product.description}</p>
-          <P>${product.weight}</p>
-          <P>${product.producer}</p>
-          <P>${product.category}</p>
-        </div>
-        <p>${product.price.toFixed(2)} kr</p>
-      </div>
-    `;
-    document.querySelector(".main-product-card-content").style.display =
-      "block";
-    mainProductCardContainer.appendChild(mainProductCardItem);
-  }); */
 
   element.addEventListener("click", (e) => {
     if (
@@ -267,7 +240,7 @@ function createProductCard(product) {
     let cartCardView = element.querySelector("#cartbuttoncount");
     cartCardView.innerHTML = `Varukorg (${cartValue})`;
     let cartHeader = document.getElementById("cart-header");
-    cartHeader.innerHTML = `Varukorg ( ${shoppingCart.length} )`;
+    cartHeader.innerHTML = `<span class="material-symbols-outlined">shopping_basket</span><div>(${shoppingCart.length})</div>`;
     let cartMobilemenu = document.getElementById("cart-mobilemenu");
     cartMobilemenu.innerHTML = `Varukorg ( ${shoppingCart.length} )`;
   });
@@ -288,7 +261,7 @@ function createProductCard(product) {
     let cartCardView = element.querySelector("#cartbuttoncount");
     cartCardView.innerHTML = `Varukorg (${cartValue})`;
     let cartHeader = document.getElementById("cart-header");
-    cartHeader.innerHTML = `Varukorg ( ${shoppingCart.length} )`;
+    cartHeader.innerHTML = `<span class="material-symbols-outlined">shopping_basket</span><div>(${shoppingCart.length})</div>`;
     let cartMobilemenu = document.getElementById("cart-mobilemenu");
     cartMobilemenu.innerHTML = `Varukorg ( ${shoppingCart.length} )`;
 
@@ -319,7 +292,7 @@ function createProductCard(product) {
     shoppingCart = JSON.parse(localStorage.getItem("Products"));
     console.log(shoppingCart.length);
     let cartHeader = document.getElementById("cart-header");
-    cartHeader.innerHTML = `Varukorg ( ${shoppingCart.length} )`;
+    cartHeader.innerHTML = `<span class="material-symbols-outlined">shopping_basket</span><div>(${shoppingCart.length})</div>`;
     let cartMobilemenu = document.getElementById("cart-mobilemenu");
     cartMobilemenu.innerHTML = `Varukorg ( ${shoppingCart.length} )`;
     cartValue++;
