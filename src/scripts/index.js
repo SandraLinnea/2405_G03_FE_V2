@@ -197,7 +197,7 @@ function createProductCard(product) {
     element.querySelector(".product-card-extra-info").style.display = "none";
   }
 
-  element.querySelector(".product-card-img").addEventListener("click", () => {
+/*   element.querySelector(".product-card-img").addEventListener("click", () => {
     //element.querySelector(".product-card-extra-info").style.display = "block";
 
     const mainProductCardContainer = document.querySelector(
@@ -223,7 +223,40 @@ function createProductCard(product) {
     document.querySelector(".main-product-card-content").style.display =
       "block";
     mainProductCardContainer.appendChild(mainProductCardItem);
+  }); */
+
+  element.addEventListener("click", (e) => {
+    if (
+      e.target.classList.contains("add-to-cart-btn") ||
+      e.target.classList.contains("cart-button-plus") ||
+      e.target.classList.contains("cart-button-minus")
+    ) {
+      return;
+    }
+    const mainProductCardContainer = document.querySelector("#productCardBackground");
+    
+    const mainProductCardItem = document.createElement("div");
+    mainProductCardItem.className = "main-product-card-item";
+    mainProductCardItem.innerHTML = `
+      <div class="product-card-info">
+        <img src="${product.image}" alt="${product.title}"
+          onerror="this.onerror=null; this.src='./src/images/products/placeholder.jpg';" class="product-card-img" />
+        <h3>${product.title}</h3>
+        <div class="product-card-extra-info-view">
+          <p>${product.description}</p>
+          <p>${product.weight}</p>
+          <p>${product.producer}</p>
+          <p>${product.category}</p>
+        </div>
+        <p>${product.price.toFixed(2)} kr</p>
+      </div>
+    `;
+  
+    document.querySelector(".main-product-card-content").style.display = 
+    "block";
+    mainProductCardContainer.appendChild(mainProductCardItem);
   });
+
 
   element.querySelector(".cart-button-plus").addEventListener("click", () => {
     cartValue++;
