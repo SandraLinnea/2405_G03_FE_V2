@@ -80,6 +80,7 @@ if (shoppingCart) {
       firstname: formData.get("firstname"),
       lastname: formData.get("lastname"),
       phonenumber: formData.get("phonenumber"),
+      // phonenumber: formData.get("phonenumber").replace(/\D/g, ""),
       shippingAddress: {
         street: formData.get("street"),
         number: formData.get("number"),
