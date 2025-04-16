@@ -330,20 +330,24 @@ aside {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1rem;
-  width: 80%;
+  width: 83%; /* Jesper set this to get the left corner to align with the h2 above*/
   justify-self: center;
 }
 
 .product-card {
+  background: white;
+  border-radius: 10px;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  background-color:white;
-  border-radius:10px;
+  height: 93%; /* important for grid equal height */
 }
 
-.product-card:hover {
-  transform: scale(1.02);
+.product-card:hover img {
+  transform: scale(1.2);
 }
+
 .product-card p {
   font-size: 2rem;
   color: red;
@@ -352,13 +356,24 @@ aside {
   margin: 1rem 1rem;
 
 }
+
+/* Jesper */
+.product-card-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 10rem;
+  height: 100%;
+}
 .product-card img {
+  transition: transform 0.3s ease;
   width: 50%;
   height: 50%;
-  object-fit: cover;
+  object-fit: scale-down;
   border-radius: 4px;
   margin-bottom: 0.5rem;
 }
+
 
 .product-card h3 {
   height: 2rem;
@@ -373,17 +388,35 @@ aside {
   max-width: 100%;
 }
 
+/* Jesper */
+.product-card-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+}
+
+
 .product-card button {
-  padding: 10px 20px; 
-  border: none; 
-  border-radius: 4px; 
-  cursor: pointer; 
+  height: 3rem; /* Jesper's workaround to make the button the same height as the + - signs*/
+  padding: 1rem 2rem; /* changed padding to rem from px */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: medium;
   font-weight: bold; 
   font-family: inherit; 
   transition: background-color 0.3s ease;
   background-color: #2426CC; 
   color: #FFFFFF;  
 }
+
+/* Jesper's workaround to get the text inside the button to align perfectly in the center */
+.product-card button span {
+  transform: translateY(-5px); /* Adjust value until it looks perfect */
+  display: inline-block;
+}
+
 .product-card button:hover {
   background-color: #001E62; 
 }
@@ -391,10 +424,13 @@ aside {
 .product-card .cart-button-array {
   display: none;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-top: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .product-card .cart-button-array .cart-button-count {
+  font-size: medium;
   align-self: center;
 }
 

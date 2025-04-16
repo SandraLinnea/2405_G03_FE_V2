@@ -147,8 +147,10 @@ function createProductCard(product) {
     element.innerHTML = `
     <div class="product-card-background"></div>
     <div class="product-card-info">
-    <img src="${product.image}" alt="${product.title}"
-      onerror="this.onerror=null; this.src='./src/images/products/placeholder.jpg';" class="product-card-img" />
+    <div class="product-card-img-container">
+      <img src="${product.image}" alt="${product.title}"
+        onerror="this.onerror=null; this.src='./src/images/products/placeholder.jpg';" class="product-card-img" />
+    </div>
     <h3>${product.title}</h3>
     <div class="product-card-extra-info">
       <P>${product.description}</p>
@@ -156,13 +158,13 @@ function createProductCard(product) {
       <P>${product.producer}</p>
       <P>${product.category}</p>
     </div>
-    <p>${product.price.toFixed(2)} kr</p>
+    <p>${product.price.toFixed(0)} kr</p>
     <div class="cart-button-array">
       <div id="cartbuttonminus" class="cart-button-minus material-symbols-outlined">remove</div>
       <div id="cartbuttoncount" class="cart-button-count">Varukorg (${cartValue})</div>
       <div id="cartbuttonplus" class="cart-button-plus material-symbols-outlined">add</div>
     </div>
-    <div id="cardbutton" class="card-button"><button class="add-to-cart-btn">Köp</button></div>
+    <div id="cardbutton" class="card-button"><button class="add-to-cart-btn"><span>Köp</span></button></div>
     </div>
   `;
     element.querySelector(".cart-button-array").style.display = "flex";
@@ -172,8 +174,10 @@ function createProductCard(product) {
     element.innerHTML = `
     <div class="product-card-background"></div>
     <div class="product-card-info">
-    <img src="${product.image}" alt="${product.title}"
-      onerror="this.onerror=null; this.src='./src/images/products/placeholder.jpg';" class="product-card-img" />
+    <div class="product-card-img-container">
+      <img src="${product.image}" alt="${product.title}"
+        onerror="this.onerror=null; this.src='./src/images/products/placeholder.jpg';" class="product-card-img" />
+    </div>
     <h3>${product.title}</h3>
     <div class="product-card-extra-info">
       <P>${product.description}</p>
@@ -181,13 +185,13 @@ function createProductCard(product) {
       <P>${product.producer}</p>
       <P>${product.category}</p>
     </div>
-    <p>${product.price.toFixed(2)} kr</p>
+    <p>${product.price.toFixed(0)} kr</p>
     <div class="cart-button-array">
       <div id="cartbuttonminus" class="cart-button-minus material-symbols-outlined">remove</div>
       <div id="cartbuttoncount" class="cart-button-count">Varukorg (0)</div>
       <div id="cartbuttonplus" class="cart-button-plus material-symbols-outlined">add</div>
     </div>
-    <div id="cardbutton" class="card-button"><button class="add-to-cart-btn">Köp</button></div>
+    <div id="cardbutton" class="card-button"><button class="add-to-cart-btn"><span>Köp</span></button></div>
     </div>
   `;
     element.querySelector(".product-card-extra-info").style.display = "none";
