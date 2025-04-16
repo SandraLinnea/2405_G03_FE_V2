@@ -100,7 +100,6 @@ aside {
     justify-content: center;
     margin-top: 2rem;
     align-self: start;
-  
 
     button {
       padding: 1rem;
@@ -121,13 +120,13 @@ aside {
       cursor: pointer;
       color: #1a0062;
       text-decoration: underline;
-      transform: scale(1.2);
+      transform: scale(1.02);
     }
     button:focus {
       cursor: pointer;
       color: #1a0062;
       text-decoration: underline;
-      transform: scale(1.2);
+      transform: scale(1.02);
     }
 
     @media (min-width: 800px) {
