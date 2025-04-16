@@ -329,8 +329,9 @@ aside {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1rem;
-  width: 83%; /* Jesper set this to get the left corner to align with the h2 above*/
+  width: 80%; /* Jesper set this to get the left corner to align with the h2 above*/
   justify-self: center;
+  margin-bottom: 1rem;
 }
 
 .product-card {
@@ -340,7 +341,6 @@ aside {
   display: flex;
   flex-direction: column;
   text-align: center;
-  height: 93%; /* important for grid equal height */
 }
 
 .product-card:hover img {
@@ -366,8 +366,8 @@ aside {
 }
 .product-card img {
   transition: transform 0.3s ease;
-  width: 50%;
-  height: 50%;
+  width: 80%;
+  height: 80%;
   object-fit: scale-down;
   border-radius: 4px;
   margin-bottom: 0.5rem;
@@ -582,8 +582,8 @@ aside {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-top: 1rem;
-      padding-bottom: 1rem;
+      padding-top: 0;
+      padding-bottom: 0;
       gap: 1rem;
       margin-left: 4rem;
       margin-right: 4rem;

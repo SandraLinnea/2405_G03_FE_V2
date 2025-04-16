@@ -200,7 +200,7 @@ function createProductCard(product) {
 
   element.addEventListener("click", (e) => {
     if (
-      e.target.classList.contains("add-to-cart-btn") ||
+      e.target.closest(".add-to-cart-btn") ||
       e.target.classList.contains("cart-button-plus") ||
       e.target.classList.contains("cart-button-minus")
     ) {
@@ -221,7 +221,7 @@ function createProductCard(product) {
           <p>${product.producer}</p>
           <p>${product.category}</p>
         </div>
-        <p>${product.price.toFixed(2)} kr</p>
+        <p>${product.price.toFixed(0)} kr</p>
       </div>
     `;
   
