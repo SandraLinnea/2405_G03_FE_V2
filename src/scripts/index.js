@@ -48,6 +48,27 @@ async function loadCategories() {
         element.innerHTML = `<button id="${category.name}">${category.name}</button>`;
         categoriesContainer.appendChild(element);
       });
+      categories.forEach((category) => {
+        //const categoriesList = createCategoriesList(category);
+        const element = document.createElement("div");
+        element.className = category.name;
+        element.innerHTML = `<button id="${category.name}">${category.name}</button>`;
+        categoriesContainer.appendChild(element);
+      });
+      categories.forEach((category) => {
+        //const categoriesList = createCategoriesList(category);
+        const element = document.createElement("div");
+        element.className = category.name;
+        element.innerHTML = `<button id="${category.name}">${category.name}</button>`;
+        categoriesContainer.appendChild(element);
+      });
+      categories.forEach((category) => {
+        //const categoriesList = createCategoriesList(category);
+        const element = document.createElement("div");
+        element.className = category.name;
+        element.innerHTML = `<button id="${category.name}">${category.name}</button>`;
+        categoriesContainer.appendChild(element);
+      });
     } else {
       categoriesContainer.innerHTML = "<p>No categories available.</p>";
     }
