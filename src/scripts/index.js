@@ -90,13 +90,12 @@ async function filterProductsBySearch(searchInput) {
     let filteredProducts = products.filter((prod) =>
       prod.title.toLowerCase().includes(searchInput.toLowerCase())
     );
-    
-  
+
     filteredProducts.sort((a, b) => a.title.localeCompare(b.title));
-    
+
     loadProducts(filteredProducts);
     console.log(filteredProducts);
-    
+
     //return filterdProducts;
   }
 
@@ -197,7 +196,6 @@ function createProductCard(product) {
     element.querySelector(".product-card-extra-info").style.display = "none";
   }
 
-
   element.addEventListener("click", (e) => {
     if (
       e.target.closest(".add-to-cart-btn") ||
@@ -206,8 +204,10 @@ function createProductCard(product) {
     ) {
       return;
     }
-    const mainProductCardContainer = document.querySelector("#productCardBackground");
-    
+    const mainProductCardContainer = document.querySelector(
+      "#productCardBackground"
+    );
+
     const mainProductCardItem = document.createElement("div");
     mainProductCardItem.className = "main-product-card-item";
     mainProductCardItem.innerHTML = `
@@ -221,15 +221,16 @@ function createProductCard(product) {
           <p>${product.producer}</p>
           <p>${product.category}</p>
         </div>
-        <p>${product.price.toFixed(0)} kr</p>
+        <p class="product-card-extra-info-price">${product.price.toFixed(
+          0
+        )} kr</p>
       </div>
     `;
-  
-    document.querySelector(".main-product-card-content").style.display = 
-    "block";
+
+    document.querySelector(".main-product-card-content").style.display =
+      "block";
     mainProductCardContainer.appendChild(mainProductCardItem);
   });
-
 
   element.querySelector(".cart-button-plus").addEventListener("click", () => {
     cartValue++;

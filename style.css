@@ -229,8 +229,19 @@ aside {
           max-width: 400px;
         }
 
-        p {
+        .product-card-extra-info-view {
+          p {
+            max-width: 400px;
+          }
+        }
+
+        .product-card-extra-info-price {
           max-width: 400px;
+          font-size: 2rem;
+          color: red;
+          font-weight: 900;
+          font-style: italic;
+          margin: 1rem 1rem;
         }
       }
     }
