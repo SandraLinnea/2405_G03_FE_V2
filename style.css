@@ -91,7 +91,7 @@ h1 {
 /* Sidebar */
 aside {
   grid-area: sidebar;
-  position: absolute;
+  position: fixed;
   align-self: start;
   display: none;
   width: 300px;
@@ -104,6 +104,7 @@ aside {
   font-size: 1.2rem;
   font-weight: bold;
   padding-top: 15%;
+  overflow: scroll; /* Enable scroll if needed */
 
   .sidebar-items {
     display: grid;
