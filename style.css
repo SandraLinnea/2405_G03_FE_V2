@@ -213,9 +213,23 @@ aside {
       background-color: white;
       overflow: auto; /* Enable scroll if needed */
 
+      .info-card-button {
+        display: grid;
+        justify-self: right;
+
+        button {
+          border-style: none;
+          background-color: white;
+          font-size: 2rem;
+          color: red;
+          font-weight: 900;
+        }
+      }
+
       .product-card-info {
         display: grid;
         justify-items: center;
+
         img {
           display: grid;
           justify-self: center;

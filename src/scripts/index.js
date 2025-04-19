@@ -232,7 +232,8 @@ function createProductCard(product) {
     const mainProductCardItem = document.createElement("div");
     mainProductCardItem.className = "main-product-card-item";
     mainProductCardItem.innerHTML = `
-      <div class="product-card-info">
+    <div id="infocardbutton" class="info-card-button"><button class="info-card-close-btn"><span>X</span></button></div>
+    <div class="product-card-info">
         <img src="${product.image}" alt="${product.title}"
           onerror="this.onerror=null; this.src='./src/images/products/placeholder.jpg';" class="product-card-img" />
         <h3>${product.title}</h3>
@@ -250,8 +251,18 @@ function createProductCard(product) {
 
     document.querySelector(".main-product-card-content").style.display =
       "block";
+
     mainProductCardContainer.appendChild(mainProductCardItem);
+
+    document.querySelector("#infocardbutton").addEventListener("click", () => {
+      const mainProductCardContainer = document.querySelector(
+        ".main-product-card-item"
+      );
+      mainProductCardContainer.remove();
+      document.querySelector(".main-product-card-content").style.display = "none";
+    });
   });
+  
 
   element.querySelector(".cart-button-plus").addEventListener("click", () => {
     cartValue++;
@@ -400,7 +411,7 @@ document.querySelector(".cart-background").addEventListener("click", () => {
   document.querySelector(".cart-content").style.display = "none";
 });
 
-document
+/* document
   .querySelector(".product-card-background")
   .addEventListener("click", () => {
     const mainProductCardContainer = document.querySelector(
@@ -408,7 +419,9 @@ document
     );
     mainProductCardContainer.remove();
     document.querySelector(".main-product-card-content").style.display = "none";
-  });
+  }); */
+
+
 
 let input = document.getElementById("site-header-search");
 // input.addEventListener("keypress", (e) => {
@@ -423,3 +436,5 @@ input.addEventListener("input", () => {
   const inputValue = document.getElementById("site-header-search").value;
   filterProductsBySearch(inputValue);
 });
+
+
