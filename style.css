@@ -294,7 +294,7 @@ aside {
       background-color: white;
       overflow-y: scroll;
       div {
-        width: 100vw;
+        width: 100%;
       }
     }
 
@@ -683,17 +683,20 @@ aside {
   }
 
   .cart-content {
+    width: 100%;
     .cart-background {
-      width: 100%;
+      
       .cart-list {
         margin-left: 0;
-        transform: translateX(-15%);
+        transform: translateX(-30%);
+        width: fit-content;
+        max-width: 600px;
         width: 50%;
         height: 60%;
         overflow-y: scroll;
         overflow-x: hidden;
         div {
-          width: auto;
+          width: 100%;
         }
       }
     }
