@@ -214,6 +214,8 @@ aside {
       overflow: auto; /* Enable scroll if needed */
 
       .info-card-button {
+        position:fixed;
+        top: 100px;
         display: grid;
         justify-self: right;
 
