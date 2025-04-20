@@ -735,7 +735,6 @@ aside {
 
 .cart-table th,
 .cart-table td {
-  border: 1px solid var(--off-white);
   padding: 0.6rem 0.8rem;
   text-align: left;
   vertical-align: middle;
@@ -743,7 +742,6 @@ aside {
 }
 
 .cart-table th {
-  background-color: var(--off-white); 
   font-weight: bold;
   font-size: 0.9rem;
 }

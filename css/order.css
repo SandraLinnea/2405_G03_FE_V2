@@ -107,3 +107,53 @@ body {
   height: auto;
   display: block;
 }
+
+h1,h2,h3 {
+  color: navy;
+  font-style: italic;
+  font-weight: 900;
+}
+
+
+/* JL Cart */
+.cart-table {
+  width: 100%;
+  margin-top: 1.5rem; 
+  margin-bottom: 1.5rem; 
+  border-collapse: collapse;
+}
+
+.cart-table th,
+.cart-table td {
+  border: 1px solid var(--off-white);
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  vertical-align: middle;
+  background-color: var(--white);
+}
+
+.cart-table th {
+  background-color: var(--off-white); 
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.cart-table td {
+   font-size: 0.9rem;
+}
+.cart-table th:nth-child(2), 
+.cart-table td:nth-child(2) { 
+  text-align: center;
+  width: 20px; 
+}
+
+.cart-table th:nth-child(3), 
+.cart-table td:nth-child(3), 
+.cart-table tfoot td:last-child {
+  text-align: right;
+  width: 100px;
+}
+
+.cart-table tfoot td {
+    font-weight: bold;
+}

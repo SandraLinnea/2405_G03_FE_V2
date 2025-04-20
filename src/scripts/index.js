@@ -345,71 +345,8 @@ function mySidebarToggle() {
   sidebar.classList.toggle("show");
 }
 
-document.querySelector("#cart-header").addEventListener("click", () => {
-  document.querySelector(".cart-content").style.display = "block";
-  let shoppingCart = JSON.parse(localStorage.getItem("Products"));
-  const cartContainer = document.querySelector(".cart-list");
-
-  cartContainer.innerHTML = "";
-  const element = document.createElement("h1");
-  element.innerHTML = `Varukorg`;
-  cartContainer.appendChild(element);
-
-  if (!shoppingCart) {
-    const cartContainer2 = document.querySelector(".cart-list");
-    const element2 = document.createElement("div");
-    element2.innerHTML = `Varukorgen är tom`;
-    cartContainer2.appendChild(element2);
-  } else {
-    shoppingCart.forEach((product) => {
-      const element = document.createElement("div");
-      element.className = product.title;
-      element.innerHTML = `<div>${product.title}</div>`;
-      cartContainer.appendChild(element);
-    });
-  }
-
-  if (shoppingCart) {
-    const elementOrder = document.createElement("div");
-    elementOrder.innerHTML = `<a href="/order.html">Lägg till order</a>`;
-    cartContainer.appendChild(elementOrder);
-  }
-});
-
-document.querySelector("#cart-mobilemenu").addEventListener("click", () => {
-  document.querySelector(".cart-content").style.display = "block";
-  let shoppingCart = JSON.parse(localStorage.getItem("Products"));
-  const cartContainer = document.querySelector(".cart-list");
-
-  cartContainer.innerHTML = "";
-  const element = document.createElement("h1");
-  element.innerHTML = `Varukorg`;
-  cartContainer.appendChild(element);
-
-  if (!shoppingCart) {
-    const cartContainer2 = document.querySelector(".cart-list");
-    const element2 = document.createElement("div");
-    element2.innerHTML = `Varukorgen är tom`;
-    cartContainer2.appendChild(element2);
-  } else {
-    shoppingCart.forEach((product) => {
-      const element = document.createElement("div");
-      element.className = product.title;
-      element.innerHTML = `<div>${product.title}</div>`;
-      cartContainer.appendChild(element);
-    });
-  }
-
-  if (shoppingCart) {
-    const elementOrder = document.createElement("div");
-    elementOrder.innerHTML = `<a href="/order.html">Lägg till order</a>`;
-    cartContainer.appendChild(elementOrder);
-  }
-});
-
-document.querySelector(".cart-background").addEventListener("click", () => {
-  document.querySelector(".cart-content").style.display = "none";
-});
+document.querySelector("#cart-header").addEventListener("click", displayCart);
+document.querySelector("#cart-mobilemenu").addEventListener("click", displayCart);
 
 /* document
   .querySelector(".product-card-background")
@@ -454,6 +391,7 @@ async function displayCart() {
   closeButtonWrapper.className = "cart-close-button-wrapper"; 
   const closeButton = document.createElement("button");
   closeButton.className = "modal-close-button"; 
+  closeButton.className = "cart-close-btn";
   closeButton.setAttribute("aria-label", "Close cart");
   const closeIconSpan = document.createElement("span");
   closeIconSpan.className = "material-symbols-outlined"; 
@@ -530,7 +468,7 @@ async function displayCart() {
       const footerRow = tfoot.insertRow();
       const cellTotalLabel = footerRow.insertCell();
       cellTotalLabel.colSpan = 2; 
-      cellTotalLabel.textContent = 'Total Summa:';
+      cellTotalLabel.textContent = 'Totalt:';
       cellTotalLabel.style.fontWeight = 'bold';
       cellTotalLabel.style.textAlign = 'right';
 
@@ -559,19 +497,18 @@ async function displayCart() {
   }
 }
 
-document.getElementById("cart-header")?.addEventListener("click", displayCart);
-document.getElementById("cart-mobilemenu")?.addEventListener("click", displayCart);
-
+function closeCartModal() {
+  const cartContent = document.querySelector(".cart-content");
+  if (cartContent) {
+    cartContent.style.display = "none"; 
+  }
+}
 const cartBackground = document.querySelector(".cart-background");
 if (cartBackground) {
   cartBackground.addEventListener("click", (event) => {
-
-      if (event.target === event.currentTarget || event.target.closest(".modal-close-button, .cart-close-btn")) { 
+      
+      if (event.target === event.currentTarget || event.target.closest(".cart-close-btn")) {
           closeCartModal();
       }
   });
-}
-
-function closeCartModal() { 
-  const cartContent = document.querySelector(".cart-content"); if (cartContent) { cartContent.style.display = "none"; }
 }
