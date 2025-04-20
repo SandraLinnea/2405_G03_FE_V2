@@ -269,7 +269,7 @@ aside {
 }
 
 .cart-content {
-  /* display: none; */
+  display: none;
 
   .cart-background {
     position: fixed;
