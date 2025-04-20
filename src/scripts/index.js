@@ -232,7 +232,7 @@ function createProductCard(product) {
     const mainProductCardItem = document.createElement("div");
     mainProductCardItem.className = "main-product-card-item";
     mainProductCardItem.innerHTML = `
-    <div id="infocardbutton" class="info-card-button"><button class="info-card-close-btn"><span>X</span></button></div>
+           <div id="infocardbutton" class="info-card-button"><button class="modal-close-button"><span class="material-symbols-outlined">close</span></button></div>
     <div class="product-card-info">
         <img src="${product.image}" alt="${product.title}"
           onerror="this.onerror=null; this.src='./src/images/products/placeholder.jpg';" class="product-card-img" />
@@ -438,3 +438,140 @@ input.addEventListener("input", () => {
 });
 
 
+// JL CART //
+async function displayCart() {
+  const cartContent = document.querySelector(".cart-content");
+  const cartContainer = document.querySelector(".cart-list");
+  
+  if (!cartContent || !cartContainer) {
+      console.error("Cannot open cart: Modal elements not found.");
+      return; 
+  }
+
+  cartContainer.innerHTML = ""; 
+
+  const closeButtonWrapper = document.createElement("div");
+  closeButtonWrapper.className = "cart-close-button-wrapper"; 
+  const closeButton = document.createElement("button");
+  closeButton.className = "modal-close-button"; 
+  closeButton.setAttribute("aria-label", "Close cart");
+  const closeIconSpan = document.createElement("span");
+  closeIconSpan.className = "material-symbols-outlined"; 
+  closeIconSpan.textContent = "close"; 
+  closeButton.appendChild(closeIconSpan);
+  //const closeSpan = document.createElement("span");
+  //closeSpan.textContent = "X"; 
+  //closeButton.appendChild(closeSpan);
+  closeButtonWrapper.appendChild(closeButton);
+  cartContainer.appendChild(closeButtonWrapper); 
+
+  const titleElement = document.createElement("h1");
+  titleElement.innerHTML = `Varukorg`;
+  cartContainer.appendChild(titleElement);
+
+  
+  let shoppingCart = JSON.parse(localStorage.getItem("Products")) || []; 
+  const aggregatedCart = {}; 
+  let overallTotal = 0;
+
+  if (shoppingCart.length > 0) {
+      shoppingCart.forEach(product => {
+          const key = product._id || product.title; 
+          if (aggregatedCart[key]) {
+              aggregatedCart[key].quantity += 1;
+          } else {
+              aggregatedCart[key] = {
+                  product: product,
+                  quantity: 1
+              };
+          }
+      });
+
+      
+      const table = document.createElement('table');
+      table.className = 'cart-table';
+
+      const thead = table.createTHead();
+      const headerRow = thead.insertRow();
+      const headers = ['Produkt', 'Antal', 'Pris'];
+      headers.forEach(text => {
+          const th = document.createElement('th');
+          th.textContent = text;
+          headerRow.appendChild(th);
+      });
+
+      
+      const tbody = table.createTBody();
+      for (const key in aggregatedCart) {
+          const item = aggregatedCart[key];
+          const product = item.product;
+          const quantity = item.quantity;
+          const lineTotal = (product.price || 0) * quantity;
+          overallTotal += lineTotal; 
+
+          const row = tbody.insertRow();
+          
+          const cellProduct = row.insertCell();
+          cellProduct.textContent = product.title || 'Okänd produkt';
+
+          
+          const cellQuantity = row.insertCell();
+          cellQuantity.textContent = quantity;
+          cellQuantity.style.textAlign = 'center'; 
+
+          
+          const cellPrice = row.insertCell();
+          cellPrice.textContent = `${lineTotal.toFixed(2)} kr`; 
+          cellPrice.style.textAlign = 'right'; // 
+      }
+
+  
+      const tfoot = table.createTFoot();
+      const footerRow = tfoot.insertRow();
+      const cellTotalLabel = footerRow.insertCell();
+      cellTotalLabel.colSpan = 2; 
+      cellTotalLabel.textContent = 'Total Summa:';
+      cellTotalLabel.style.fontWeight = 'bold';
+      cellTotalLabel.style.textAlign = 'right';
+
+      const cellTotalValue = footerRow.insertCell();
+      cellTotalValue.textContent = `${overallTotal.toFixed(2)} kr`;
+      cellTotalValue.style.fontWeight = 'bold';
+      cellTotalValue.style.textAlign = 'right';
+
+      cartContainer.appendChild(table); 
+
+      const elementOrder = document.createElement("div");
+      elementOrder.innerHTML = `<a href="/order.html">Till kassan</a>`; 
+      cartContainer.appendChild(elementOrder);
+
+  } else {
+      
+      const emptyMessage = document.createElement("p"); 
+      emptyMessage.innerHTML = `Varukorgen är tom`;
+      emptyMessage.style.textAlign = 'center';
+      emptyMessage.style.marginTop = '1rem';
+      cartContainer.appendChild(emptyMessage);
+  }
+
+  if(cartContent) { 
+      cartContent.style.display = "block"; 
+  }
+}
+
+document.getElementById("cart-header")?.addEventListener("click", displayCart);
+document.getElementById("cart-mobilemenu")?.addEventListener("click", displayCart);
+
+const cartBackground = document.querySelector(".cart-background");
+if (cartBackground) {
+  cartBackground.addEventListener("click", (event) => {
+
+      if (event.target === event.currentTarget || event.target.closest(".modal-close-button, .cart-close-btn")) { 
+          closeCartModal();
+      }
+  });
+}
+
+function closeCartModal() { 
+  const cartContent = document.querySelector(".cart-content"); if (cartContent) { cartContent.style.display = "none"; }
+}
