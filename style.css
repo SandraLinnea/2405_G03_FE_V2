@@ -221,6 +221,7 @@ aside {
         justify-self: right;
 
         button {
+          cursor: pointer;
           border-style: none;
           background-color: white;
           font-size: 2rem;
@@ -303,14 +304,42 @@ aside {
       color: black;
       background-color: white;
       overflow-y: scroll;
-      
-      .cart-close-btn {
+
+      .cart-functions-wrapper {
         position: absolute;
-        top: 180px;
-        right: 35px; 
+        top: 1rem;
+        right: 1rem; 
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .empty-cart-button {
+        height: fit-content;
+        min-height: 2rem;
+        padding: 0rem 1rem;
+        border: solid 2px var(--blue);
+        border-radius: 1rem;
+        cursor: pointer;
+        font-size: medium;
+        font-weight: bold;
+        font-family: inherit;
+        transition: background-color 0.3s ease;
+        background-color: var(--blue);
+        background: none;
+        color: var(--blue);
+      }
+
+      .empty-cart-button:hover {
+        border: solid 2px var(--red);
+        color: var(--red)
+      }
+
+      .cart-close-btn {
+        margin-left: 1rem;
         font-size: 1.8rem; 
         font-weight: bold;
-        color: var(--dark-gray);
+        color: var(--red);
         background: none;
         border: none;  
         cursor: pointer;
@@ -331,7 +360,7 @@ aside {
 
     a:link,
     a:visited {
-      background-color: blue;
+      background-color: var(--blue);
       color: white;
       align-content: center;
       margin-top: 2.5rem;
@@ -340,7 +369,9 @@ aside {
       display: grid;
       justify-self: center;
       border-radius: 1rem;
-      font-weight: 500;
+      text-align: center;
+      font-weight: bold;
+      font-family: inherit;
     }
 
     a:hover,
@@ -719,8 +750,6 @@ aside {
         background-color: var(--white);
 
         .cart-close-btn {
-          top: 15px;
-          right: 15px;
           font-size: 1.8rem;
         }
             h1 {

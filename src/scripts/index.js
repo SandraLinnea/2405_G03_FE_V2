@@ -385,7 +385,23 @@ async function displayCart() {
       return; 
   }
 
-  cartContainer.innerHTML = ""; 
+  cartContainer.innerHTML = "";
+
+  const cartFunctionsWrapper = document.createElement("div");
+  cartFunctionsWrapper.className = "cart-functions-wrapper";
+
+  const emptyCartWrapper = document.createElement("div");
+  emptyCartWrapper.className = "empty-cart-button-wrapper";
+  const emptyButton = document.createElement("button");
+  emptyButton.className = "empty-cart-button";
+  emptyButton.textContent = "Töm varukorg";
+  emptyButton.addEventListener("click", (e) => {
+    localStorage.clear();
+    alert("Varukorgen har tömts!");
+    location.reload()
+  });
+  emptyCartWrapper.appendChild(emptyButton);
+  cartFunctionsWrapper.appendChild(emptyCartWrapper);
 
   const closeButtonWrapper = document.createElement("div");
   closeButtonWrapper.className = "cart-close-button-wrapper"; 
@@ -401,7 +417,8 @@ async function displayCart() {
   //closeSpan.textContent = "X"; 
   //closeButton.appendChild(closeSpan);
   closeButtonWrapper.appendChild(closeButton);
-  cartContainer.appendChild(closeButtonWrapper); 
+  cartFunctionsWrapper.appendChild(closeButtonWrapper); 
+  cartContainer.appendChild(cartFunctionsWrapper); 
 
   const titleElement = document.createElement("h1");
   titleElement.innerHTML = `Varukorg`;
