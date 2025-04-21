@@ -306,10 +306,8 @@ aside {
       overflow-y: scroll;
 
       .cart-functions-wrapper {
-        position: absolute;
-        top: 1rem;
-        right: 1rem; 
         display: flex;
+        justify-content: end;
         flex-direction: row;
         align-items: center;
       }
@@ -748,6 +746,15 @@ aside {
         overflow-y: scroll;
         overflow-x: hidden;
         background-color: var(--white);
+
+        .cart-functions-wrapper {
+          position: absolute;
+          top: 1rem;
+          right: 1rem; 
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
 
         .cart-close-btn {
           font-size: 1.8rem;
